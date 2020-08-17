@@ -144,6 +144,11 @@ else
     wrong_version
 fi
 
+# [pip3]
+app="pip3"
+app_min="1"
+check_which $app $app_min
+
 # [Ruby >= 2.5.1, < 3.0]
 app="ruby"
 app_min="2.5.1"
@@ -171,4 +176,3 @@ then
 else
     die "Docker is not running"
 fi
-
