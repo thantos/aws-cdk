@@ -49,7 +49,7 @@ test('Can use EC2 taskdef as EventRule target', () => {
           InputPathsMap: {
             'detail-event': '$.detail.event',
           },
-          InputTemplate: '{"containerOverrides":[{"name":"TheContainer","command":["echo",<detail-event>]}]}',
+          InputTemplate: '{"containerOverrides":[{"name":"TheContainer","command":["echo","<detail-event>"]}]}',
         },
         RoleArn: { 'Fn::GetAtt': ['TaskDefEventsRoleFB3B67B8', 'Arn'] },
         Id: 'Target0',
@@ -134,7 +134,7 @@ test('Can import an EC2 task definition from task definition attributes as Event
           InputPathsMap: {
             'detail-event': '$.detail.event',
           },
-          InputTemplate: '{"containerOverrides":[{"name":"TheContainer","command":["echo",<detail-event>]}]}',
+          InputTemplate: '{"containerOverrides":[{"name":"TheContainer","command":["echo","<detail-event>"]}]}',
         },
         RoleArn: { 'Fn::GetAtt': ['TaskDefEventsRoleFB3B67B8', 'Arn'] },
         Id: 'Target0',
@@ -213,7 +213,7 @@ test('Can import a Fargate task definition from task definition attributes as Ev
           InputPathsMap: {
             'detail-event': '$.detail.event',
           },
-          InputTemplate: '{"containerOverrides":[{"name":"TheContainer","command":["echo",<detail-event>]}]}',
+          InputTemplate: '{"containerOverrides":[{"name":"TheContainer","command":["echo","<detail-event>"]}]}',
         },
         RoleArn: { 'Fn::GetAtt': ['TaskDefEventsRoleFB3B67B8', 'Arn'] },
         Id: 'Target0',
@@ -292,7 +292,7 @@ test('Can import a Task definition from task definition attributes as EventRule 
           InputPathsMap: {
             'detail-event': '$.detail.event',
           },
-          InputTemplate: '{"containerOverrides":[{"name":"TheContainer","command":["echo",<detail-event>]}]}',
+          InputTemplate: '{"containerOverrides":[{"name":"TheContainer","command":["echo","<detail-event>"]}]}',
         },
         RoleArn: { 'Fn::GetAtt': ['TaskDefEventsRoleFB3B67B8', 'Arn'] },
         Id: 'Target0',
@@ -361,7 +361,7 @@ test('Can use Fargate taskdef as EventRule target', () => {
           InputPathsMap: {
             'detail-event': '$.detail.event',
           },
-          InputTemplate: '{"containerOverrides":[{"name":"TheContainer","command":["echo",<detail-event>]}]}',
+          InputTemplate: '{"containerOverrides":[{"name":"TheContainer","command":["echo","<detail-event>"]}]}',
         },
         RoleArn: { 'Fn::GetAtt': ['TaskDefEventsRoleFB3B67B8', 'Arn'] },
         Id: 'Target0',
