@@ -365,7 +365,7 @@ export = {
                   'InputPathsMap': {
                     'detail-bar': '$.detail.bar',
                   },
-                  'InputTemplate': '{"foo":<detail-bar>}',
+                  'InputTemplate': '{"foo":"<detail-bar>"}',
                 },
               },
               {

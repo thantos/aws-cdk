@@ -206,8 +206,7 @@ class FieldAwareEventInput extends RuleTargetInput {
    * return a bracing that's unlikely to occur naturally (like tokens).
    */
   private keyPlaceholder(key: string) {
-    if (this.inputType !== InputType.Object) { return `<${key}>`; }
-    return UNLIKELY_OPENING_STRING + key + UNLIKELY_CLOSING_STRING;
+    return `<${key}>`;
   }
 
   /**
@@ -230,18 +229,12 @@ class FieldAwareEventInput extends RuleTargetInput {
         }
         return resolved;
       } else if (typeof(resolved) === 'string') {
-        return resolved.replace(OPENING_STRING_REGEX, '<').replace(CLOSING_STRING_REGEX, '>');
+        return resolved;
       }
       return resolved;
     }
   }
 }
-
-const UNLIKELY_OPENING_STRING = '<<${';
-const UNLIKELY_CLOSING_STRING = '}>>';
-
-const OPENING_STRING_REGEX = new RegExp(regexQuote('"' + UNLIKELY_OPENING_STRING), 'g');
-const CLOSING_STRING_REGEX = new RegExp(regexQuote(UNLIKELY_CLOSING_STRING + '"'), 'g');
 
 /**
  * Represents a field in the event pattern
@@ -339,10 +332,3 @@ function isEventField(x: any): x is EventField {
 }
 
 const EVENT_FIELD_SYMBOL = Symbol.for('@aws-cdk/aws-events.EventField');
-
-/**
- * Quote a string for use in a regex
- */
-function regexQuote(s: string) {
-  return s.replace(/[.?*+^$[\]\\(){}|-]/g, '\\$&');
-}
